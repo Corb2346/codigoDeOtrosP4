@@ -1,0 +1,51 @@
+package com.generation;
+
+import java.util.Scanner; //Se agregró el scanner 
+
+public class codigodeOtroPa4 {
+
+	public static void main(String[] args) { //se agregó método main
+		
+	
+	 Scanner s = new Scanner(System.in);//se agregó el System.in para que lee la entrada del sistema
+	    
+	    System.out.print("Turno del jugador 1 (introduzca piedra, papel o tijeras): ");
+	    String j1 = s.nextLine();
+	    
+	    System.out.print("Turno del jugador 1 (introduzca piedra, papel o tijeras): ");
+	    Scanner s2 = new Scanner(System.in);
+	    String j2 = s.nextLine();
+	    
+	    if (j1 == j2) { //se quitó un parentesis que estaba de mas
+	      System.out.println("Empate");
+	    } else {
+	      int g =0;//se inicializa esta variable y se cambia a 0
+	      //se agregan breaks a los case ya que si no se desborda a default
+	      switch(j1) { 
+	        case "piedra":
+	          if (j2 == "tijeras") {
+	            g = 1;
+	            break; 
+	          }
+	        case "papel":
+	          if (j2 == "piedra") {
+	            g = 1;
+	            break;
+	          } //se agregó } llave de cierre 
+	          
+	        case "tijera":
+	          if (j2 == "papel") { // se quitó el equals ya que 
+	        	  //en las demas comparaciones no se usa 
+	        	  //Y se homogeniza
+	            g = 1;
+	            break;
+	          }
+	          break;
+	        default:
+	      }
+	      System.out.println("Gana el jugador " + g);
+	    }
+	    s.close();// se cerraron los scanners
+	    s2.close();//ambos inicializados y cerrados
+	}
+}
